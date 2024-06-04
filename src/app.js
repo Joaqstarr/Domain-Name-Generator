@@ -6,20 +6,18 @@ import "./assets/img/rigo-baby.jpg";
 import "./assets/img/4geeks.ico";
 
 window.onload = function() {
-  //write your code here
   console.log("Hello Rigo from the console!");
   const allDomains = GetAllNames();
 
-  var ul = document.createElement("ul");
+  var ul = document.createElement("ol");
 
   document.getElementById("renderList").appendChild(ul);
 
-  for (const domain of allDomains) {
-    var li = document.createElement("li");
+  const listItems = allDomains
+    .map((element, position, array) => `<li>${element}</li>`)
+    .join("");
 
-    li.innerText = domain;
-    ul.appendChild(li);
-  }
+  ul.innerHTML = listItems;
   console.log(allDomains);
 };
 
